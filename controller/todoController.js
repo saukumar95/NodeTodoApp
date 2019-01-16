@@ -62,7 +62,7 @@ router.put('/updateTodo/:id', (req, res) => {
     if (!ObjectId.isValid(id)) {
         return res.status(400).send();
     }
-    Todo.findOneAndUpdate(id, req.body, e => {
+    Todo.findOneAndUpdate({ _id: id }, req.body, e => {
         res.send({
             responseMessage: "Successfully updated."
         });
